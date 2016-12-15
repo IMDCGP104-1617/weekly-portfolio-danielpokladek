@@ -72,9 +72,10 @@ namespace LinkedLists_DanielPokladek {
 
             count++;
             // If current "head" is null, run InsertBeginning() and pass the Data from InsertAfter()
-            // If current "head" exists, run a while loop to find the next empty node.
-            // Once empty node found, make a "newNode", set data = Data, next Node to null
+            // If current "head" exists, run a while loop to find the Node which is after "int after".
+            // Once the Node was found, make a "newNode", set data = Data, next Node to null
             //      and set the next Node to "newNode".
+            // And if the current Node is null, break the loop.
         }
 
         public T RemoveBeginning ( ) {
