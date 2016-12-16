@@ -7,22 +7,21 @@ using System.Threading.Tasks;
 namespace LinkedLists_DanielPokladek {
     class Program {
         static void Main(string[] args) {
-            LinkedList<string> list = new LinkedList<string>();
+            LinkedList<int> list = new LinkedList<int>();
 
             // Check InsertBeginning and InsertAfter to see if working & compiling.
-            list.InsertBeginning("1");
-            list.InsertAfter(1, "2");
-            list.InsertAfter(2, "3");
-            list.InsertAfter(3, "4");
-            list.InsertAfter(4, "5");
+            list.InsertBeginning(0);
+            list.InsertAfter(1, 1);
+            list.InsertAfter(2, 2);
+            list.InsertAfter(3, 3);
 
-            // Print the "Head" value of list. Should be "9".
+            // Print the "Head" value of list. Should be "1".
             Console.WriteLine(list.Head);
 
             // Check RemoveBeginning and RemoveAfter to see if working & compiling.
-            list.RemoveAfter(3);
+            list.RemoveAfter(0);
 
-            // Print the "Head" value of list. Should be "4" (because of the removed variables).
+            // Print the "Head" value of list. Should be "1", while Node "2" should be gone (check autos).
             Console.WriteLine(list.Head);
             Console.ReadLine();
         }

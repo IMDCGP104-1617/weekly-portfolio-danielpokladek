@@ -23,13 +23,13 @@ namespace LinkedLists_DanielPokladek {
         }
 
         private Node head;          // The first node in the list.
-        private int count = 0;      // Count/Length of the current list.
+        private int length = 0;     // Count/Length of the current list.
 
         public T Head { get { return head.data; } }
 
         public LinkedList( ) {     // Initializing the values, and setting them to zero.
             this.head = null;
-            this.count = 0;
+            this.length = 0;
         }
 
         public void InsertBeginning ( T Data ) {   // Insert a new node at the start.
@@ -44,24 +44,25 @@ namespace LinkedLists_DanielPokladek {
                 head = newNode;
             }
 
-            count++;
+            length++;
             // If current "head" is null, set the head to "newNode"
             // If current "head" exists, set it to next node and set "newNode" to "head"
         }
 
         public void InsertAfter ( int after, T Data ) {
+            Node current = head;
+            int counter = 0;
+
             if (head == null) {
-                InsertBeginning(Data);
+                InsertBeginning(Data);      // If there is no head, create head.
             }
             else {
-                Node current = head;
-                int counter = 0;
-
-                while (counter != 0) {
-                    current = current.next;
-                    counter++;
-                    if(current == null)
-                        break;
+                while (counter != after) {
+                    if (current.next != null) {
+                        current = current.next;
+                        counter++;
+                    }
+                    else { break; }
                 }
 
                 Node newNode = new Node();
@@ -70,7 +71,7 @@ namespace LinkedLists_DanielPokladek {
                 current.next = newNode;
             }
 
-            count++;
+            length++;
             // If current "head" is null, run InsertBeginning() and pass the Data from InsertAfter()
             // If current "head" exists, run a while loop to find the Node which is after "int after".
             // Once the Node was found, make a "newNode", set data = Data, next Node to null
@@ -88,7 +89,7 @@ namespace LinkedLists_DanielPokladek {
                     head = head.next;
             }
 
-            count--;
+            length--;
             return ret;
             // If "head" is not null, set ret to the data of head.
             // If next of "head" is null, set head to null.
@@ -99,17 +100,33 @@ namespace LinkedLists_DanielPokladek {
             T ret = default(T);
 
             Node current = head;
+            int counter = 0;
 
-            while (current != null) {
-                if (current.next != null) {
-                    ret = current.next.data;
-                    current.next = current.next.next;
-                    count--;
+            while (count != counter) {
+                current = current.next;
+                counter++;
+                if (current.next == null) {
+                    break;
                 }
-                break;
             }
 
-            current = current.next;
+            if (current.next != null) {
+                ret = current.next.data;
+                current.next = current.next.next;
+                length--;
+            }
+            else {
+                return ret;
+            }
+
+            //while (current != null) {
+            //    if (current.next != null) {
+            //        ret = current.next.data;
+            //        current.next = current.next.next;
+            //        count--;
+            //    }
+            //    break;
+            //}
             return ret;
             // Set current Node to head. While the current node is not null and if next node,
             // is not equal to null, grab the data from next node and make it into current node.
