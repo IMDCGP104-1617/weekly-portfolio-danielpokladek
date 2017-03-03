@@ -14,6 +14,7 @@ namespace LinkedLists_DanielPokladek {
          *                 after add a new Node to the end with data passed.
          * RemoveBeginning - Set 0 "head" always equal to null, and make next Node the new head.
          * RemoveAfter - Loop the List and find last Node, remove the last Node.
+         * 
          */
 
 
