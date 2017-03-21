@@ -14,15 +14,8 @@ namespace LinkedLists_DanielPokladek {
             list.InsertAfter(1, 1);
             list.InsertAfter(2, 2);
             list.InsertAfter(3, 3);
-
-            // Print the "Head" value of list. Should be "1".
-            Console.WriteLine(list.Head);
-
-            // Check RemoveBeginning and RemoveAfter to see if working & compiling.
-            list.RemoveAfter(0);
-
-            // Print the "Head" value of list. Should be "1", while Node "2" should be gone (check autos).
-            Console.WriteLine(list.Head);
+            
+            // Check the "locals/autos" for variables.
             Console.ReadLine();
         }
     }
