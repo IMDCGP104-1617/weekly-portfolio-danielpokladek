@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TreesAssignment {
+namespace TreePortfolio {
     class Node {
         public int nodeValue;
         public Node nodeParent;
